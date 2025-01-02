@@ -13,12 +13,17 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  phoneNumber   String?
+  age           Int?
+  interests     String[]  // Array of interests
+  gdprConsent   Boolean   @default(false)
+  consentDate   DateTime?
   onboarded     Boolean   @default(false)
   accounts      Account[]
   chats     Chat[]
   sessions      Session[]
-  lessons       Lesson[]
-  progress      Progress[]
+  documents     Document[]    // Add this line
+  vectors       VectorStore[] // Add this line
 }
 
 model Account {
